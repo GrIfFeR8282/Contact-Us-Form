@@ -1,0 +1,21 @@
+@keyframes notify-sucess {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -25%);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translate(-50%, 25%);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, 25%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -25%);
+    }
+}

@@ -1,0 +1,208 @@
+.div-contactform-fullcontext {
+    background-color: rgb(255, 255, 255);
+    padding: 2rem;
+    border-radius: 1.2rem;
+    box-sizing: border-box;
+    height: auto;
+    margin: 1rem auto;
+}
+
+.h1-form-title {
+    color: hsl(187, 24%, 22%);
+    font-weight: 700;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 2.25rem;
+}
+
+.div-form-input-context {
+    gap: 1.75rem;
+}
+
+.labelinput-gap-style {
+    gap: 0.5rem;
+}
+
+.div-name-field-block {
+    width: 100%;
+}
+
+.div-name-block {
+    gap: 1rem;
+    margin: 0;
+}
+
+.label-field-style {
+    font-size: 16px;
+    color: hsl(187, 24%, 22%);
+    font-weight: 500;
+}
+
+.span-requiredfield-style {
+    color: hsl(169, 82%, 27%);
+}
+
+.textinput-style {
+    border: 0.2mm solid hsl(186, 15%, 59%);
+    padding: 0.85rem;
+    transition: border 0.3s ease;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+}
+
+.textinput-style:not(:placeholder-shown),
+.textarea-message:not(:placeholder-shown) {
+    font-weight: 500;
+    color: hsl(187, 24%, 22%);
+}
+
+.textinput-style:hover,
+.textinput-style:focus {
+    border: 0.2mm solid hsl(169, 82%, 27%);
+}
+
+.div-typequery-option-block {
+    gap: 1rem;
+}
+
+.div-typequery-optionstyle {
+    border: 0.2mm solid hsl(186, 15%, 59%);
+    padding: 1rem;
+    border-radius: 0.3rem;
+    gap: 0.3rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+input {
+    cursor: pointer;
+    outline: none;
+}
+
+.radio-typequery-style {
+    width: 0.8rem;
+    border-radius: 50%;
+    height: 0.8rem;
+}
+
+.radio-typequery-style:checked {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("../../assets/img/icon-radio-selected.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.label-typequery-style {
+    font-weight: 500;
+    cursor: pointer;
+    color: hsl(187, 24%, 22%);
+}
+
+.selected-option-style {
+    border: 0.2mm solid hsl(169, 82%, 27%);
+    background-color: hsl(148, 38%, 91%);
+}
+
+.textarea-message {
+    appearance: none;
+    outline: none;
+    padding: 0.85rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    min-width: 0;
+    height: 5rem;
+}
+
+.check-contact-agree {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 0.1rem;
+    border: 0.1mm solid rgba(100, 100, 100, 0.5);
+    appearance: none;
+}
+
+.check-contact-agree:checked {
+    background-image: url("../../assets/img/icon-checkbox-check.svg");
+    background-size: cover;
+    background-position: center;
+    border: none
+}
+
+.div-agreeterms-block {
+    gap: 1rem;
+    align-items: center;
+    justify-content: left;
+}
+
+.label-contact-agree {
+    cursor: pointer;
+}
+
+.button-submit-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    align-items: center;
+    color: white;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+    background-color: hsl(169, 82%, 27%);
+    padding: 0.9rem;
+}
+
+.span-error-style {
+    color: hsl(0, 66%, 54%);
+    font-weight: 400;
+    margin: 0;
+}
+
+.div-sucessmessage-context {
+    position: absolute;
+    width: auto;
+    gap: 0;
+}
+
+.div-sucessmessage-header {
+    gap: 1rem;
+    justify-content: left;
+    align-items: center;
+    color: hsl(0, 0%, 100%)
+}
+
+.div-sucessmessage-context {
+    background-color: hsl(187, 24%, 22%);
+    padding: 1.5rem;
+    position: absolute;
+    border-radius: 1rem;
+    top: 0%;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.h1-sucessmessage-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.img-sucessmessage-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.p-sucessmessage-description {
+    color: hsl(148, 38%, 91%);
+}
+
+.notify-animation-style {
+    display: flex;
+    animation: 5s ease-in-out 0s notify-sucess;
+}

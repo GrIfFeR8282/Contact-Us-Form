@@ -1,0 +1,8 @@
+.div-index-fullcontext {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: hsl(148, 38%, 91%);
+}
