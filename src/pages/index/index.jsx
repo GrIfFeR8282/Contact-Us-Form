@@ -1,11 +1,11 @@
 import "./index.css"
 
-import FormComponent from "../../components/contactForm/contactform.jsx"
+import ContactForm from "../../components/contactForm/contactForm.jsx"
 
 export default function Index() {
     return (
         <div className="div-index-fullcontext">
-            <FormComponent />
+            <ContactForm />
         </div>
     )
 }

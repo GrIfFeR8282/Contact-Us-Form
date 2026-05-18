@@ -1,15 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import "./contactform.css"
+import "./contactForm.css"
 
 import MessageSent_Icon from "../../assets/img/icon-success-check.svg"
 
-export default function Contactform() {
-    const [isgeneralrequest, setgeneralrequest] = useState(null);
+export default function ContactForm() {
     const [ismobile, setismobile] = useState(false);
     const [isposting, setisposting] = useState(false);
-    const inputfirstoption = useRef(null);
-    const inputsecondoption = useRef(null);
-    const labelcheckbox = useRef(null);
+    const [firstsubmit, setfirstsubmit] = useState(false);
+    const inputcheckbox = useRef(null);
     const firstname_span = useRef(null);
     const lastname_span = useRef(null);
     const email_span = useRef(null);
@@ -25,69 +23,50 @@ export default function Contactform() {
         agreeterms: agreeterms_span
     }
     const sucesspoput = useRef(null);
+    const radio_general = useRef(null)
+    const radio_support = useRef(null);
     useEffect(() => {
         const query = window.matchMedia("(max-width: 768px)");
         const onchange = (e) => setismobile(e.matches);
         query.addEventListener("change", onchange);
         return () => query.removeEventListener("change", onchange);
     }, [])
-    useEffect(() => {
-        if (isgeneralrequest === true) inputfirstoption.current.checked = true;
-        else if (isgeneralrequest === false) inputsecondoption.current.checked = true
-        else return
-    }, [isgeneralrequest])
     const sendsucessmesage = () => {
         if (sucesspoput !== null && sucesspoput.current) {
             const tab = sucesspoput.current
             tab.classList.add("notify-animation-style")
-            setTimeout(() => tab.classList.remove("notify-animation-style"), 5000);
+            setTimeout(() => tab.classList.remove("notify-animation-style"), 2500);
         }
         else console.log("Thanks for completing the form. We'll be in touch soon!")
     }
     const handlesubmit = (e) => {
         e.preventDefault();
-        if (isposting) return
-        setisposting(p => p = true)
+        if (isposting || !firstsubmit) return
+        setisposting(true)
         const form = e.target;
         const data = new FormData(form);
         const fields = ['firstname', 'lastname', 'email', 'typequery', 'message', 'agreeterms'];
         fields.forEach((element) => {
             if (!data.get(element) || data.get(element).trim() === "") {
-                console.warn(`Can't get ${element} value. ${data.get(element)}`)
                 const errormessage = span_ref[element].current
                 if (errormessage) {
                     errormessage.classList.remove("no-visible-style");
-                    setTimeout(() => errormessage.classList.add("no-visible-style"), 10000);
+                    setTimeout(() => errormessage.classList.add("no-visible-style"), 5000);
                 }
-                setisposting(p => p = false)
+                setisposting(false)
             }
         })
         if (fields.every(element => data.has(element) && data.get(element).trim() !== "")) {
-            /* try { POST method
-                    fetch("localhost:5173/support", {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    })
-                        .then(resp => resp.json())
-                        .then(sendsucessmesage())
-                }
-                catch (err) {
-                    console.error(`Error during post method: ${err}`)
-                */
             sendsucessmesage();
-            setTimeout(() => { setisposting(p => p = false) }, 5000);
-            console.log(data);
+            setTimeout(() => setisposting(false), 2500);
         }
     }
     return (
-        <div style={{ width: `${!ismobile ? "50%" : "85%"}` }} className="div-contactform-fullcontext">
+        <div className="div-contactform-fullcontext">
             <form onSubmit={handlesubmit} className="form-fullcontext flex-collumn-style">
                 <h1 className="h1-form-title">Contact Us</h1>
                 <div className="div-form-input-context flex-collumn-style">
-                    <div className={`div-name-block ${!ismobile ? "flex-row-style" : "flex-collumn-style"}`}>
+                    <div className="div-name-block">
                         <div className="div-name-field-block labelinput-gap-style flex-collumn-style">
                             <label className="label-field-style">First Name <span className="span-requiredfield-style">*</span></label>
                             <input className="textinput-style" type="text" name="firstname" />
@@ -106,13 +85,13 @@ export default function Contactform() {
                     </div>
                     <div className="div-typequery-block flex-collumn-style">
                         <h1 className="label-field-style">Query Type <span className="span-requiredfield-style">*</span></h1>
-                        <div className={`div-typequery-option-block ${!ismobile ? "flex-row-style" : "flex-collumn-style"}`}>
-                            <div onClick={() => setgeneralrequest(r => r = true)} className={`div-typequery-optionstyle flex-row-style ${isgeneralrequest === true ? "selected-option-style" : ""}`}>
-                                <input ref={inputfirstoption} className="radio-typequery-style" type="radio" name="typequery" value="General Enquiry" />
+                        <div className="div-typequery-option-block">
+                            <div onClick={() => radio_general.current.checked = true} className={`div-typequery-optionstyle flex-row-style ${g ? "selected-option-style" : ""}`}>
+                                <input ref={radio_general} className="radio-typequery-style" type="radio" name="typequery" value="General Enquiry" />
                                 <label className="label-typequery-style">General Enquiry</label>
                             </div>
-                            <div onClick={() => setgeneralrequest(r => r = false)} className={`div-typequery-optionstyle flex-row-style ${isgeneralrequest === false ? "selected-option-style" : ""}`}>
-                                <input ref={inputsecondoption} className="radio-typequery-style" type="radio" name="typequery" value="Support Request" />
+                            <div onClick={() => radio_support.current.checked = true} className={`div-typequery-optionstyle flex-row-style ${radio_support.current.checked ? "selected-option-style" : ""}`}>
+                                <input ref={radio_support} className="radio-typequery-style" type="radio" name="typequery" value="Support Request" />
                                 <label className="label-typequery-style">Support Request</label>
                             </div>
                         </div>
@@ -125,15 +104,15 @@ export default function Contactform() {
                     </div>
                     <div className="labelinput-gap-style flex-collumn-style">
                         <div className="div-agreeterms-block flex-row-style">
-                            <input ref={labelcheckbox} type="checkbox" name="agreeterms" className="check-contact-agree" />
-                            <label onClick={() => labelcheckbox.current.checked = !labelcheckbox.current.checked} className="label-field-style label-contact-agree">I consent to being contacted by the team <span className="span-requiredfield-style">*</span></label>
+                            <input ref={inputcheckbox} type="checkbox" name="agreeterms" className="check-contact-agree" />
+                            <label onClick={() => labelinputcheckboxcheckbox.current.checked = !inputcheckbox.current.checked} className="label-field-style label-contact-agree">I consent to being contacted by the team <span className="span-requiredfield-style">*</span></label>
                         </div>
                         <span ref={agreeterms_span} className="span-error-style no-visible-style">Field required.</span>
                     </div>
-                    <button type="submit" className="button-submit-form">Submit</button>
+                    <button onClick={() => setfirstsubmit(true)} type="submit" className="button-submit-form">Submit</button>
                 </div>
             </form>
-            <div ref={sucesspoput} className="div-sucessmessage-context flex-collumn-style notify-animation-style">
+            <div ref={sucesspoput} className="div-sucessmessage-context flex-collumn-style">
                 <div className="div-sucessmessage-header flex-row-style">
                     <img className="img-sucessmessage-icon" src={MessageSent_Icon} />
                     <h1 className="h1-sucessmessage-title">Message Sent!</h1>

@@ -28,13 +28,13 @@ This project was built using:
 - HTML5
 - CSS3
 - Javascript
-- [React](https://reactjs.org/) - JS library
+- React - JS library
 - Vite
 
 ## Future updates
 
 As you can see, this is a frontend mentor challenge, maybe i'll send 2 or 3 small fix updates which i already notice what needs to be fixed.
-please do not send pull requests, but feel free to create forks from this project and any issue you find on my code.
+please do not send pull requests, but feel free to create forks from this project or any issue you find on my code.
 
 ## Links
 
