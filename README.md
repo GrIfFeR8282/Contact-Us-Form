@@ -28,13 +28,13 @@ This project was built using:
 - HTML5
 - CSS3
 - Javascript
-- [React](https://reactjs.org/) - JS library
+- React - JS library
 - Vite
 
 ## Future updates
 
 As you can see, this is a frontend mentor challenge, maybe i'll send 2 or 3 small fix updates which i already notice what needs to be fixed.
-please do not send pull requests, but feel free to create forks from this project and any issue you find on my code.
+please do not send pull requests, but feel free to create forks from this project or any issue you find on my code.
 
 ## Links
 
@@ -50,3 +50,11 @@ please do not send pull requests, but feel free to create forks from this projec
 - Frontend Mentor - [@GrIfFeR8282](https://www.frontendmentor.io/profile/GrIfFeR8282)
 - Github: [@GrIfFeR8282](https://github.com/GrIfFeR8282)
 
+## Changelog
+
+### [Hotfix] 05/24/2026 - Updating code, Email verification and bug fix
+Big update to the code, fixing critical bugs and improving field validation.
+* Email verification added.
+* Fixed: Submit notification bug running only once and never working again.
+* Better submit handling
+* After submit, all fields are cleared.

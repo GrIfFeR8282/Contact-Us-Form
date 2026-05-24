@@ -5,6 +5,7 @@
     box-sizing: border-box;
     height: auto;
     position: relative;
+    width: 50%;
     margin: 1rem auto;
 }
 
@@ -30,6 +31,8 @@
 
 .div-name-block {
     gap: 1rem;
+    display: flex;
+    flex-direction: row;
     margin: 0;
 }
 
@@ -48,8 +51,12 @@
     padding: 0.85rem;
     transition: border 0.3s ease;
     outline: none;
+    cursor: pointer;
+    outline: none;
     font-size: 1rem;
     border-radius: 0.3rem;
+    cursor: pointer;
+    outline: none;
 }
 
 .textinput-style:not(:placeholder-shown),
@@ -61,10 +68,13 @@
 .textinput-style:hover,
 .textinput-style:focus {
     border: 0.2mm solid hsl(169, 82%, 27%);
+    cursor: pointer;
 }
 
 .div-typequery-option-block {
     gap: 1rem;
+    display: flex;
+    flex-direction: row;
 }
 
 .div-typequery-optionstyle {
@@ -77,15 +87,15 @@
     cursor: pointer;
 }
 
-input {
-    cursor: pointer;
-    outline: none;
+.label-main-typequery-style {
+    margin-bottom: 0.5rem;
 }
 
 .radio-typequery-style {
     width: 0.8rem;
     border-radius: 50%;
     height: 0.8rem;
+    cursor: pointer;
 }
 
 .radio-typequery-style:checked {
@@ -115,6 +125,7 @@ input {
     font-size: 1rem;
     border-radius: 0.3rem;
     min-width: 0;
+    cursor: pointer;
     height: 5rem;
 }
 
@@ -186,7 +197,7 @@ input {
     opacity: 0;
     left: 50%;
     transform: translateX(-50%);
-    display: none;
+    display: flex;
 }
 
 .h1-sucessmessage-title {
@@ -206,4 +217,20 @@ input {
 .notify-animation-style {
     display: flex;
     animation: 5s ease-in-out 0s notify-sucess;
+}
+
+@media (max-width: 768px) {
+    .div-contactform-fullcontext {
+        width: 85%;
+    }
+
+    .div-typequery-option-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div-name-block {
+        display: flex;
+        flex-direction: column;
+    }
 }
