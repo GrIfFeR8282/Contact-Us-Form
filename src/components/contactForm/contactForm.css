@@ -95,6 +95,7 @@
     width: 0.8rem;
     border-radius: 50%;
     height: 0.8rem;
+    cursor: pointer;
 }
 
 .radio-typequery-style:checked {

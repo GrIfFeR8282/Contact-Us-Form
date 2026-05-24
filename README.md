@@ -50,3 +50,11 @@ please do not send pull requests, but feel free to create forks from this projec
 - Frontend Mentor - [@GrIfFeR8282](https://www.frontendmentor.io/profile/GrIfFeR8282)
 - Github: [@GrIfFeR8282](https://github.com/GrIfFeR8282)
 
+## Changelog
+
+### [Hotfix] 05/24/2026 - Updating code, Email verification and bug fix
+Big update to the code, fixing critical bugs and improving field validation.
+* Email verification added.
+* Fixed: Submit notification bug running only once and never working again.
+* Better submit handling
+* After submit, all fields are cleared.
